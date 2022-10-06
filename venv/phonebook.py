@@ -48,40 +48,11 @@ def choice(update, context):
     else:
         update.message.reply_text('Это не то.\n 1 - поиск информации по фамилии: \n2 - поиск информации по телефону: \n3 - для выхода \n')
 
-# def rational_one(update, context):
-#     user = update.message.from_user
-#     logger.info("Пользователь ввел фамилию: %s: %s", user.first_name, update.message.text)
-#     get_rational = update.message.text
-#     # if get_rational.isdigit():
-#     #     get_rational = float(get_rational)
-#         context.user_data['rational_one'] = get_rational
-#         update.message.reply_text(
-#             'Введите второе рациональное')
-#         return RATIONAL_TWO
 
-    # else:
-    #     update.message.reply_text(
-    #         'Нужно ввести число')
-
-
-# def rational_two(update, context):
-#     user = update.message.from_user
-#     logger.info("Пользователь ввел число: %s: %s", user.first_name, update.message.text)
-#     get_rational = update.message.text
-#     if get_rational.isdigit():
-#         get_rational = float(get_rational)
-#         context.user_data['rational_two'] = get_rational
-#         update.message.reply_text(
-#             'Выберите операцию с числами: \n\n+ - для сложения: \n- - для вычетания: \n* - для умножения: \n/ - для деления: \n')
-#         return OPERATIONS_RATIONAL
 
 
 def operatons_rational(update, context):
-    # user = update.message.from_user
-    # logger.info(
-    #     "Пользователь выбрал операцию %s: %s", user.first_name, update.message.text)
-    # # rational_one = context.user_data.get('rational_one')
-    # rational_two = context.user_data.get('rational_two')
+    
     user_choice = update.message.text
 
     if user_choice in lc.stud_card['Фамилия']:
@@ -91,63 +62,15 @@ def operatons_rational(update, context):
         return ConversationHandler.END
     else:
         update.message.reply_text('Это не то')
-    # if user_choice in '+-/*':
-    #     if user_choice == '+':
-    #         result = rational_one + rational_two
-    #     if user_choice == '-':
-    #         result = rational_one - rational_two
-    #     if user_choice == '*':
-    #         result = rational_one * rational_two
-    #     if user_choice == '/':
-    #         try:
-    #             result = rational_one / rational_two
-    #         except:
-    #             update.message.reply_text('Деление на ноль запрещено')
-    #     update.message.reply_text(
-    #         f'Результат: {rational_one} + {rational_two} = {result}')
-    #     return ConversationHandler.END
-    # else:
-    #     update.message.reply_text('Это не то.Введите +-*/')
-
-# def complex_one(update, context):
-#     user = update.message.from_user
-#     logger.info(
-#         "Пользователь ввел телефон %s: %s", user.first_name, update.message.text)
-#     user_choice = update.message.text
-#     test = user_choice.replace('-', '')
-#     if ' ' in test and (test.replace(' ', '')).isdigit():
-#         user_choice = user_choice.split(' ')
-#         complex_one = complex(int(user_choice[0]), int(user_choice[1]))
-#         context.user_data['complex_one'] = complex_one
-#         update.message.reply_text(
-#             f'Первое число {complex_one},  Введите Re и Im второго числа через ПРОБЕЛ: ')
-#         return COMPLEX_TWO
-#     else:
-#         update.message.reply_text('Это не то. Введите Re и Im первого числа через ПРОБЕЛ')
+    
 
 
-# def complex_two(update, context):
-#     user = update.message.from_user
-#     logger.info(
-#         "Пользователь ввел число %s: %s", user.first_name, update.message.text)
-#     user_choice = update.message.text
-#     test = user_choice.replace('-', '')
-#     if ' ' in test and (test.replace(' ', '')).isdigit():
-#         user_choice = user_choice.split(' ')
-#         complex_two = complex(int(user_choice[0]), int(user_choice[1]))
-#         context.user_data['complex_two'] = complex_two
-#         update.message.reply_text(
-#             f'Второе число {complex_two}, Выберите операцию с цислами: \n\n+ - для сложения: \n- - для вычетания: \n* - для умножения: \n/ - для деления: \n')
-#         return OPERATIONS_COMPLEX
-#     else:
-#         update.message.reply_text('Это не то. Введите Re и Im второго числа через ПРОБЕЛ')
+
+
+
 
 def operatons_complex(update, context):
-    # user = update.message.from_user
-    # logger.info(
-    #     "Пользователь выбрал операцию %s: %s", user.first_name, update.message.text)
-    # complex_one = context.user_data.get('complex_one')
-    # complex_two = context.user_data.get('complex_two')
+   
     user_choice = update.message.text
     if user_choice in lc.stud_card['Телефон']:
         index = lc.stud_card['Телефон'].index(user_choice)
